@@ -1,0 +1,38 @@
+version: '3.0'
+
+services:
+
+    ftp-server:
+        image: 192.168.200.167:5000/cwsl_ftp_server
+        depends_on:
+          - db
+        environment:
+          IN_DOCKER: 1
+          SPRING_PROFILE: container
+          WAIT_FOR_HOST_AND_PORT: db:3306
+        volumes:
+          - ./app/files:/app/files
+          - ./app/logs:/app/logs
+        ports:
+          - 6688:6688
+          - 33933:33933  ## passive mode port
+
+    file-processor:
+        image: 192.168.200.167:5000/cwsl_file_processor
+        depends_on:
+          - ftp-server
+        environment:
+          IN_DOCKER: 1
+          SPRING_PROFILE: loccontainer
+          WAIT_FOR_HOST_AND_PORT: ftp-server:6688
+        volumes:
+          - ./app/files:/app/files
+          - ./app/logs:/app/logs
+
+    db:
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: capitalflow!
+            MYSQL_DATABASE: test
+        ports:
+            - 3306:3306
