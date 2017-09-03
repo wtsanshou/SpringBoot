@@ -1,4 +1,4 @@
-# Paint Shop 
+# Explanation
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ b3. If it's not a solution, set the color back to null, search the next null col
 
 c. If there is no solution even to the end of a customer, return no solution
 
-4  return the searching result.
+4.  return the searching result.
 
 
 * **worst-case time complexity:** O(m<sup>n</sup>)
@@ -43,23 +43,24 @@ c. If there is no solution even to the end of a customer, return no solution
 
 ### Solution 2:
 
-1. If the solution is updated, search all customers; else, go to step 2
+1. Put the matte color to the end of each customer if the customer like a matte color
+2. If the solution is updated, search all customers; else, go to step 2
  
 a. if the customer just has one Paint left.
 
 a1. if the Paint is different from the final result, there is no solution and return "No solution"
 
-a2. else put the Paint to the final result and remove the customer and go to step 1.
+a2. else put the Paint to the final result and remove the customer and go to step 2.
 
 b. if the customer has more than one Paint left.
  
-b1. if the first Paint is already in the final result, remove the customer and go to step 1.
+b1. if the first Paint is already in the final result, remove the customer and go to step 2.
 
 b2. else remove the paint from the customer's paint list, and search next customer.
 
-c. after search all customers of the shop, go to step 1.
+c. after search all customers of the shop, go to step 2.
  
-2  return the searching result.
+3.  return the searching result.
 
 * **worst-case time complexity:** O(n * m * max(p))
 * **worst-case space complexity:** O(n * m)
