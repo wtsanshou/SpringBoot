@@ -89,4 +89,4 @@ c. after search all customers of the shop, go to step 1.
 * test15: color number is larger than Integer's max value
 * test16: the first line is not digital numbers
 * test17: the order of input is not "number" "letter"
-* test18: The letter is neither "M" or "N"
+* test18: The letter is neither "M" or "G"
