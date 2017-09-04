@@ -13,28 +13,40 @@ import ie.gilt.paintshop.model.Shop;
 /**
  * @desc this class will hold functions for color matching.
  * 
- *       >>>>Step 1, If the solution is updated, search all customers; else, go
- *       to step 2
+ *       >>>>Step 1, If it is the begining of the algorithm or the solution is
+ *       updated, search all customers; else, return the searching result
  * 
- *       >>>a. if the customer just has one Paint left.
+ *       >>>a. if the customer just has only one Paint left.
  * 
- *       >>a1. if the Paint is different from the final result, there is no
- *       solution and return "No solution"
+ *       >>a1. if the Paint color is in the final result
  * 
- *       >>a2. else put the Paint to the final result and remove the customer
- *       and go to step 1.
+ *       >a11. if the Paint color surface is different from the final result,
+ *       there is no solution and return null
  * 
- *       >>>b. if the customer has more than one Paint left.
+ *       >a12. if the Paint color surface is the same as the final result,
+ *       remove the customer and search next customer
  * 
- *       >>b1. if the first Paint is already in the final result, remove the
- *       customer and go to step 1.
+ *       >>a2. if the Paint color is not in the final result, put the Paint into
+ *       the final result. set the solution is updated and search next customer.
  * 
- *       >>b2. else remove the paint from the customer's paint list, and search
- *       next customer.
+ *       >>>b. if the customer has more than one Paint left. Search each paint
+ * 
+ *       >>b1. if the Paint color is in the final result
+ * 
+ *       >b11. if the Paint color surface is different from the final result,
+ *       remove the paint from the customer and set that the solution is
+ *       updated. Check if the customer's paint list is empty.
+ * 
+ *       b111. if the customer's paint list is empty, there is no solution and
+ *       return null
+ * 
+ *       b112. if the customer's paint list is not empty, check next paint.
+ * 
+ *       >b12. if the Paint color surface is the same as the final result,
+ *       remove the customer and search next customer
  * 
  *       >>>c. after search all customers of the shop, go to step 1.
  * 
- *       >>>>Step 2, return the searching result.
  * @return the matching result
  * @author Tao Wei
  */
@@ -62,10 +74,9 @@ public class Solution2 implements ShopManager {
 
 		return solution;
 	}
-	
 
 	/**
-	 * @desc finds a solution by remove customer from the shop or remove paint from
+	 * @desc finds the solution by remove customer from the shop or remove paint from
 	 *       costomer
 	 * @param Shop
 	 *            shop - the object of the shop includes color number and all its
@@ -80,39 +91,43 @@ public class Solution2 implements ShopManager {
 			update = false;
 			for (int i = 0; i < customers.size(); ++i) {
 				Customer customer = customers.get(i);
-				if (customer.size() == 1) {
+				if (customer.paintSize() == 1) {
 					Paint singlePaint = customer.getPaint(0);
-					if (noSolution(map, singlePaint)) {
-						return null;
+					if (map.containsKey(singlePaint.getColor())) {
+						if (doesConflictWithSomeone(map, singlePaint)) {
+							return null;
+						} else {
+							shop.removeCustomer(i);
+							i -= 1;
+						}
 					} else {
 						map.put(singlePaint.getColor(), singlePaint.isMatte() ? "M" : "G");
 						update = true;
 						shop.removeCustomer(i);
-						break;
+						i -= 1;
 					}
 				} else {
-					Paint firstPaint = customer.getPaints().get(0);
-					if (isFavoritedBySomeone(map, firstPaint)) {
-						update = true;
-						shop.removeCustomer(i);
-						break;
-					} else {
-						update = true;
-						customer.removePaint(0);
+					for (int p = 0; p < customer.paintSize(); ++p) {
+						Paint paint = customer.getPaints().get(p);
+						if (map.containsKey(paint.getColor())) {
+							if (doesConflictWithSomeone(map, paint)) {
+								update = true;
+								customer.removePaint(p);
+								p -= 1;
+								if (customer.paintSize() == 0)
+									return null;
+							} else {
+								shop.removeCustomer(i);
+								i -= 1;
+								break;
+							}
+						}
 					}
 				}
 			}
 		}
 		return map;
 
-	}
-
-	private boolean noSolution(Map<Integer, String> map, Paint singlePaint) {
-		return map.containsKey(singlePaint.getColor()) && doesConflictWithSomeone(map, singlePaint);
-	}
-
-	private boolean isFavoritedBySomeone(Map<Integer, String> map, Paint firstPaint) {
-		return map.containsKey(firstPaint.getColor()) && !doesConflictWithSomeone(map, firstPaint);
 	}
 
 	private boolean doesConflictWithSomeone(Map<Integer, String> map, Paint paint) {

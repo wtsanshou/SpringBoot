@@ -8,7 +8,7 @@
 
 1. run `./gradlew build` to build a jar
 2. run the Application (a jar was build in the folder build/lib/)
-3. input a file path (assume the format of the file is legal)
+3. input a file path (e.g tests/test1.txt. assume the format of the file is legal)
 4. input "exit" to end the program.
 
 ## Explanation
@@ -43,24 +43,33 @@ c. If there is no solution even to the end of a customer, return no solution
 
 ### Solution 2:
 
-1. Put the matte color to the end of each customer if the customer like a matte color
-2. If the solution is updated, search all customers; else, go to step 2
+1. If it is the begining of the algorithm or the solution is updated, search all customers; else, return the searching result.
  
-a. if the customer just has one Paint left.
+a. if the customer just has only one Paint left.
 
-a1. if the Paint is different from the final result, there is no solution and return "No solution"
+a1. if the Paint color is in the final result.
 
-a2. else put the Paint to the final result and remove the customer and go to step 2.
+a11. if the Paint color surface is different from the final result, there is no solution and return null.
 
-b. if the customer has more than one Paint left.
+a12. if the Paint color surface is the same as the final result, remove the customer and search next customer.
  
-b1. if the first Paint is already in the final result, remove the customer and go to step 2.
-
-b2. else remove the paint from the customer's paint list, and search next customer.
-
-c. after search all customers of the shop, go to step 2.
+a2. if the Paint color is not in the final result, put the Paint into the final result. set the solution is updated and search next customer.
  
-3.  return the searching result.
+b. if the customer has more than one Paint left. Search each paint.
+
+b1. if the Paint color is in the final result.
+
+b11. if the Paint color surface is different from the final result, remove the paint from the customer and set that the solution is updated. Check if the customer's paint list is empty.
+
+b111. if the customer's paint list is empty, there is no solution and return null.
+
+b112. if the customer's paint list is not empty, check next paint.
+
+b12. if the Paint color surface is the same as the final result, remove the customer and search next customer
+
+c. after search all customers of the shop, go to step 1.
+
+**NOTE :** use LinkedList due to a lot of remove operations
 
 * **worst-case time complexity:** O(n * m * max(p))
 * **worst-case space complexity:** O(n * m)
