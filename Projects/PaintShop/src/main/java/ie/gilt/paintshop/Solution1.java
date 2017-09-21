@@ -49,7 +49,7 @@ public class Solution1 implements ShopManager{
 
 		String[] res = new String[shop.getColorNum()];
 
-		shop.sortCustomers((Customer a, Customer b) -> a.size() - b.size());
+		shop.sortCustomers((Customer a, Customer b) -> a.paintSize() - b.paintSize());
 
 		List<String> mem = Arrays.asList(res);
 		if (doesSolutionFound(shop, mem, 0))
@@ -73,14 +73,14 @@ public class Solution1 implements ShopManager{
 
 		for (int j = n; j < shop.size(); ++j) {
 			int i = 0;
-			for (; i < shop.getCustomer(j).size(); ++i) {
+			for (; i < shop.getCustomer(j).paintSize(); ++i) {
 				Paint occupyPaint = shop.getCustomer(j).getPaint(i);
 				if (isFavoritedBySomeone(mem, occupyPaint)) {
 					break;
 				}
 			}
-			if (i == shop.getCustomer(j).size()) {
-				for (i = 0; i < shop.getCustomer(j).size(); ++i) {
+			if (i == shop.getCustomer(j).paintSize()) {
+				for (i = 0; i < shop.getCustomer(j).paintSize(); ++i) {
 					Paint emptyPaint = shop.getCustomer(j).getPaint(i);
 					if (mem.get(emptyPaint.getColor() - 1) == null) {
 						mem.set(emptyPaint.getColor() - 1, emptyPaint.isMatte() ? "M" : "G");
@@ -90,7 +90,7 @@ public class Solution1 implements ShopManager{
 					}
 				}
 			}
-			if (i == shop.getCustomer(j).size()) {
+			if (i == shop.getCustomer(j).paintSize()) {
 				return false;
 			}
 		}

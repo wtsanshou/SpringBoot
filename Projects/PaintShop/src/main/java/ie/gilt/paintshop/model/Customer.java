@@ -47,7 +47,7 @@ public class Customer {
 		paints.set(paints.size() - 1, temp);
 	}
 
-	public int size() {
+	public int paintSize() {
 		return paints == null ? 0 : paints.size();
 	}
 
