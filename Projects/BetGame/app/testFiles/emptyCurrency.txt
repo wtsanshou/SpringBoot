@@ -1,0 +1,2 @@
+betId,	betTimestamp,	selectionId,	selectionName,	stake,	price,	currency
+Bet-11,	1489490156000,	2,	Selection-2,	1.25,	4.0,	

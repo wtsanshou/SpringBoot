@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" tests="18" skipped="0" failures="0" errors="0" timestamp="2017-10-23T19:49:29" hostname="LIUs-MacBook-Air.local" time="0.079">
+  <properties/>
+  <testcase name="theMaxAndMinValuseShouldBeCorrect_AfterGroupBySelectionNameAndCurrencyAndSortByTotalStacks" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.019"/>
+  <testcase name="returnReportWithTitle_whenCreateAReportFromGroups" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.005"/>
+  <testcase name="returnGroupedAndSortedBets_whenGroupByTwoGroupbyersSortedByTotalPayout" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.002"/>
+  <testcase name="returnGroupedAndSortedBets_whenGroupByMultipleGroupbyersSortedByTotalPayout" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.004"/>
+  <testcase name="returnEmptyBets_whenAnalyseAnEmptyGame" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.005"/>
+  <testcase name="returnEmptyBets_whenAnalyseAnEmptyComparator" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.002"/>
+  <testcase name="returnGroupedAndSortedBets_whenGroupByOneGroupbyerSortedByTotalPayoutOrTotalStack" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.002"/>
+  <testcase name="returnEmptyBets_whenAnalyseAnEmptyGrroupByers" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.001"/>
+  <testcase name="theMaxAndMinValuseShouldBeCorrect_AfterGroupByCurrencyAndSortByTotalPayout" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.001"/>
+  <testcase name="theMaxAndMinValuseShouldBeCorrect_AfterGroupByCurrencyAndSortByTotalStacks" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.001"/>
+  <testcase name="returnEmptyReport_whenCreateAReportWithEmptyGroups" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.006"/>
+  <testcase name="returnEmptyReport_whenUseWrongTitleSize" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.007"/>
+  <testcase name="returnEmptyReport_whenCreateAReportWithEmptyTitles" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.008"/>
+  <testcase name="theMaxAndMinValuseShouldBeCorrect_AfterGroupByMultipleGroupByersAndSortByTotalPayout" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.002"/>
+  <testcase name="theMaxAndMinValuseShouldBeCorrect_AfterGroupByMultipleGroupByersAndSortByTotalStacks" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.002"/>
+  <testcase name="theMaxAndMinValuseShouldBeCorrect_AfterGroupBySelectionNameAndSortByTotalPayout" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.001"/>
+  <testcase name="theMaxAndMinValuseShouldBeCorrect_AfterGroupBySelectionNameAndSortByTotalStacks" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.001"/>
+  <testcase name="theMaxAndMinValuseShouldBeCorrect_AfterGroupBySelectionNameAndCurrencyAndSortByTotalPayout" classname="ie.dublin.ppb.betgame.statistic.MyAnalyst_test" time="0.003"/>
+  <system-out><![CDATA[2017-10-23 20:49:29 | INFO  | [Test worker] i.d.p.b.u.i.TextFileReader:65 - Column number is 7
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:45 - The game data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:45 - The game data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:45 - The game data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:45 - The game data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:45 - The game data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:45 - The game data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:45 - The game data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:45 - The game data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:53 - The customerComparator is null
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:53 - The customerComparator is null
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:49 - The groupByers is null
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:49 - The groupByers is null
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:72 - The grouped data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:72 - The grouped data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:72 - The grouped data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:72 - The grouped data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:72 - The grouped data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:72 - The grouped data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:72 - The grouped data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:72 - The grouped data is empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:80 - The titles size are not matched to data
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:80 - The titles size are not matched to data
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:80 - The titles size are not matched to data
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:80 - The titles size are not matched to data
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:80 - The titles size are not matched to data
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:80 - The titles size are not matched to data
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:76 - The titles are empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:76 - The titles are empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:76 - The titles are empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:76 - The titles are empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:76 - The titles are empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:76 - The titles are empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:76 - The titles are empty
+2017-10-23 20:49:29 | WARN  | [Test worker] i.d.p.b.s.MyAnalyst:76 - The titles are empty
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

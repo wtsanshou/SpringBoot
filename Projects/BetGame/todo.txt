@@ -1,0 +1,4 @@
+1. read titles from input data
+2. Test if the money number with currency symbol
+3. Read data from other format file or from Http
+4. Write report to different format file
